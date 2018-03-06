@@ -3,9 +3,9 @@ package com.twu.biblioteca;
 import java.util.*;
 
 public class LibraryUI {
-    private static final String WELCOME_MESSAGE = "Welcome to Biblioteca!";
-    private static final String MENU_MESSAGE = "Please select an option.";
-    private static final String NO_COMMAND = "Select a valid option!";
+    public static final String WELCOME_MESSAGE = "Welcome to Biblioteca!";
+    public static final String MENU_MESSAGE = "Please select an option.";
+    public static final String NO_COMMAND = "Select a valid option!";
 
     private Scanner input = new Scanner(System.in);
 
@@ -24,8 +24,8 @@ public class LibraryUI {
     }};
 
     public void introMessages() {
-        System.out.println(welcomeMessage());
-        System.out.println(menuMessage());
+        System.out.println(WELCOME_MESSAGE);
+        System.out.println(MENU_MESSAGE);
     }
 
     public Command getCommand(String id) {
@@ -50,18 +50,6 @@ public class LibraryUI {
 
     public String getInput() {
         return input.next();
-    }
-
-    public String welcomeMessage() {
-        return WELCOME_MESSAGE;
-    }
-
-    public String menuMessage() {
-        return MENU_MESSAGE;
-    }
-
-    public String noCommandMessage() {
-        return NO_COMMAND;
     }
 
     public static void main(String[] args) {

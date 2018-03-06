@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -27,19 +26,18 @@ public class LibraryUITest {
 
     @Test
     public void welcomeMessage() {
-        lib.welcomeMessage();
-        assertEquals("Welcome to Biblioteca!", lib.welcomeMessage());
+        assertEquals("Welcome to Biblioteca!", LibraryUI.WELCOME_MESSAGE);
     }
 
     @Test
     public void mainMenu() {
-        assertEquals("Please select an option.", lib.menuMessage());
+        assertEquals("Please select an option.", LibraryUI.MENU_MESSAGE);
     }
 
     @Test
     public void runIntroSequenceMenu() {
         lib.introMessages();
-        assertEquals(lib.welcomeMessage()+"\n"+lib.menuMessage()+"\n", outContent.toString());
+        assertEquals(LibraryUI.WELCOME_MESSAGE+"\n"+ LibraryUI.MENU_MESSAGE+"\n", outContent.toString());
     }
 
     @Test
@@ -54,7 +52,7 @@ public class LibraryUITest {
     public void invalidInput() {
         Command cmd = lib.getCommand("z");
         lib.execute(cmd);
-        assertEquals(lib.noCommandMessage() + "\n", outContent.toString());
+        assertEquals(LibraryUI.NO_COMMAND + "\n", outContent.toString());
     }
 
     public void executeById(String id) {

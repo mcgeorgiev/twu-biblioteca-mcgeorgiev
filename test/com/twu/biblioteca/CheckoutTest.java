@@ -26,14 +26,14 @@ public class CheckoutTest {
     @Test
     public void successfulCheckout() {
         String message = co.checkout(book);
-        assertEquals(co.successMessage(), message);
+        assertEquals(Checkout.SUCCESSFUL_MESSAGE, message);
     }
 
     @Test
     public void unsuccessfulCheckout() {
         book.changeToOnLoan();
         String message = co.checkout(book);
-        assertEquals(co.unsuccessfulMessage(), message);
+        assertEquals(Checkout.UNSUCCESSFUL_MESSAGE, message);
     }
 
     @Test
@@ -49,13 +49,13 @@ public class CheckoutTest {
     public void successfulReturn() {
         book.changeToOnLoan();
         String message = co.checkin(book);
-        assertEquals(co.successReturnMessage(), message);
+        assertEquals(Checkout.SUCCESSFUL_RETURN_MESSAGE, message);
     }
 
     @Test
     public void unsuccessfulReturn() {
         String message = co.checkin(book);
-        assertEquals(co.unsuccessfulReturnMessage(), message);
+        assertEquals(Checkout.UNSUCCESSFUL_RETURN_MESSAGE, message);
     }
 
 
