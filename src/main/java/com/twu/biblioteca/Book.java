@@ -13,7 +13,7 @@ public class Book {
     }
 
     public String getDetail() {
-        return String.format("%20s | %20s | %4s", title, author, dop);
+        return String.format("%30s | %30s | %4s", title, author, dop);
     }
 
     public boolean onLoan() {

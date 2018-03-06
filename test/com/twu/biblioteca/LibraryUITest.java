@@ -40,6 +40,35 @@ public class LibraryUITest {
         assertEquals(lib.welcomeMessage()+"\n"+lib.menuMessage()+"\n", outContent.toString());
     }
 
+    @Test
+    public void listBooks() {
+        Command cmd = lib.getCommand("l");
+        lib.execute(cmd);
+        assertEquals(cmd.getMessage() + "\n" + lib.getBooks(), outContent.toString());
+
+    }
+
+    
+
+    // Not easy to test System.exit!
+//    @Test
+//    public void quit() {
+//        Command cmd = lib.getCommand("q");
+//        lib.execute(cmd);
+//        assertEquals(cmd.getMessage(), outContent.toString());
+//    }
+
+
+//    @Test
+//    public void returnedBookInList() {
+//
+//    }
+//
+//    @Test
+//    public void onLoanBookNotInList() {
+//
+//    }
+
 //    @Test
 //    public void quitMainMenu() {
 //

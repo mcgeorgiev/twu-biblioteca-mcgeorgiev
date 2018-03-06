@@ -1,22 +1,30 @@
 package com.twu.biblioteca;
 
+import java.util.List;
+
 public class ListBooksCommand extends Command {
     private String message;
 
+
     public ListBooksCommand() {
-        super.identifier = "l";
+        super.message = "Listing Books";
     }
 
-    public void execute() {
+    public void execute(List<Book> books) {
         message();
+        StringBuilder listOfBooks = new StringBuilder();
+        for (Book b :books) {
+            if (!b.onLoan()) {
+                listOfBooks.append(b.getDetail());
+                listOfBooks.append("\n");
+            }
+        }
+        System.out.println(listOfBooks);
     }
 
     public void message() {
         System.out.println(getMessage());
     }
 
-    public String getMessage() {
-        return "Listing Books";
-    }
 
 }

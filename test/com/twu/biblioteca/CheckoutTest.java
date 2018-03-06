@@ -28,4 +28,18 @@ public class CheckoutTest {
         String message = co.checkout(book);
         assertEquals(co.successMessage(), message);
     }
+
+    @Test
+    public void unsuccessfulCheckout() {
+        book.changeToOnLoan();
+        String message = co.checkout(book);
+        assertEquals(co.unsuccessfulMessage(), message);
+    }
+
+    @Test
+    public void returnBooksInList() {
+
+    }
+
+
 }

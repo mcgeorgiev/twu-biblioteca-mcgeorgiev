@@ -1,22 +1,20 @@
 package com.twu.biblioteca;
 
+import java.util.List;
+
 public class QuitCommand extends Command {
-    private String message;
 
     public QuitCommand() {
-        super.identifier = "q";
+        super.message = "Thank you for using Biblioteca.";
     }
 
-    public void execute() {
+    public void execute(List<Book> books) {
         message();
+        System.exit(0);
     }
 
     public void message() {
         System.out.println(getMessage());
-    }
-
-    public String getMessage() {
-        return "Thank you for using Biblioteca.";
     }
 
 }
