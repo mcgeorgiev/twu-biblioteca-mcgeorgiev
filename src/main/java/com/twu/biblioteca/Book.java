@@ -2,15 +2,15 @@ package com.twu.biblioteca;
 
 public class Book {
     private String title, author;
-    private int dop;
+    private String dop;
 
     public Book(String t, String a, String d) {
         title = t;
         author = a;
-        dop = Integer.parseInt(d);
+        dop = d;
     }
 
-    public String getDetails() {
-
+    public String getDetail() {
+        return String.format("%20s | %20s | %4s", title, author, dop);
     }
 }
