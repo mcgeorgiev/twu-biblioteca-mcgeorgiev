@@ -6,7 +6,9 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class LibraryUITest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -48,7 +50,25 @@ public class LibraryUITest {
 
     }
 
-    
+    @Test
+    public void invalidInput() {
+        Command cmd = lib.getCommand("z");
+        lib.execute(cmd);
+        assertEquals(lib.noCommandMessage() + "\n", outContent.toString());
+    }
+
+    public void executeById(String id) {
+        Command cmd = lib.getCommand("z");
+        lib.execute(cmd);
+    }
+
+    @Test
+    public void onLoanBookNotInList() {
+        String loanedDetails = new Book("John Kennedy Toole", "A Confederacy of Dunces", "1980").getDetail();
+        Command cmd = lib.getCommand("l");
+        lib.execute(cmd);
+        assertFalse(outContent.toString().contains(loanedDetails));
+    }
 
     // Not easy to test System.exit!
 //    @Test
@@ -58,33 +78,13 @@ public class LibraryUITest {
 //        assertEquals(cmd.getMessage(), outContent.toString());
 //    }
 
-
-//    @Test
-//    public void returnedBookInList() {
-//
-//    }
-//
-//    @Test
-//    public void onLoanBookNotInList() {
-//
-//    }
-
-//    @Test
-//    public void quitMainMenu() {
-//
-//
-//    }
-//
 //    @Test
 //    public void runMainMenu() {
-//
-//
-//    }
-//
-//    @Test
-//    public void testEntry() {
+//        lib.run();
+//        assertEquals(lib.printSelectionOptions(), outContent.toString());
 //
 //    }
+
 
 
 }

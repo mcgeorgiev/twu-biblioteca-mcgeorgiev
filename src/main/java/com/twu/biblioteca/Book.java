@@ -23,4 +23,8 @@ public class Book {
     public void changeToOnLoan() {
         onLoan = true;
     }
+
+    public void changeToReturned() {
+        onLoan = false;
+    }
 }

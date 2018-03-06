@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public class CheckoutTest {
     Book book;
@@ -15,7 +16,6 @@ public class CheckoutTest {
         book = new Book("Thomas Hardy", "The Return of the Native", "1878");
         co = new Checkout();
     }
-
 
     @Test
     public void bookCheckedOut() {
@@ -37,8 +37,25 @@ public class CheckoutTest {
     }
 
     @Test
-    public void returnBooksInList() {
+    public void returnBook() {
+        co.checkout(book);
+        assertTrue(book.onLoan());
+        co.checkin(book);
+        assertFalse(book.onLoan());
+    }
 
+
+    @Test
+    public void successfulReturn() {
+        book.changeToOnLoan();
+        String message = co.checkin(book);
+        assertEquals(co.successReturnMessage(), message);
+    }
+
+    @Test
+    public void unsuccessfulReturn() {
+        String message = co.checkin(book);
+        assertEquals(co.unsuccessfulReturnMessage(), message);
     }
 
 

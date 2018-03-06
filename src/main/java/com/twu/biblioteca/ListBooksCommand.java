@@ -3,11 +3,10 @@ package com.twu.biblioteca;
 import java.util.List;
 
 public class ListBooksCommand extends Command {
-    private String message;
-
 
     public ListBooksCommand() {
         super.message = "Listing Books";
+        super.description = "List present books";
     }
 
     public void execute(List<Book> books) {

@@ -5,8 +5,7 @@ import java.util.*;
 public class LibraryUI {
     private static final String WELCOME_MESSAGE = "Welcome to Biblioteca!";
     private static final String MENU_MESSAGE = "Please select an option.";
-    private static final String BO0K_LIST_MESSAGE = "Listing books";
-    private static final String NO_COMMAND = "No Command found";
+    private static final String NO_COMMAND = "Select a valid option!";
 
     private Scanner input = new Scanner(System.in);
 
@@ -42,6 +41,8 @@ public class LibraryUI {
     }
 
     public void run() {
+        System.out.println(printSelectionOptions());
+
         while (true) {
             execute(getCommand(getInput()));
         }
@@ -59,6 +60,10 @@ public class LibraryUI {
         return MENU_MESSAGE;
     }
 
+    public String noCommandMessage() {
+        return NO_COMMAND;
+    }
+
     public static void main(String[] args) {
         LibraryUI lib = new LibraryUI();
         lib.introMessages();
@@ -74,5 +79,14 @@ public class LibraryUI {
             }
         }
         return listOfBooks.toString()+"\n";
+    }
+
+    public String printSelectionOptions() {
+        StringBuilder selections = new StringBuilder();
+        for (Map.Entry<String, Command> entry : commands.entrySet()) {
+            selections.append(String.format("%4s : %20s\n", entry.getKey(), entry.getValue().description()));
+        }
+        return selections.toString();
+
     }
 }
