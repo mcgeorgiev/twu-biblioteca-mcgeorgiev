@@ -9,11 +9,6 @@ public class LibraryUI {
 
     private Scanner input = new Scanner(System.in);
 
-    private Map<String, Command> commands = new HashMap<String, Command>() {{
-        put("q", new QuitCommand());
-        put("l", new ListBooksCommand());
-    }};
-
     private List<Book> books = new ArrayList<Book>() {{
         add(new Book("Thomas Hardy", "The Return of the Native", "1878"));
         add(new Book("Adam Tooze", "The Deluge", "2015"));
@@ -21,6 +16,11 @@ public class LibraryUI {
         Book loaned = new Book("John Kennedy Toole", "A Confederacy of Dunces", "1980");
         loaned.changeToOnLoan();
         add(loaned);
+    }};
+
+    private Map<String, Command> commands = new HashMap<String, Command>() {{
+        put("q", new QuitCommand());
+        put("l", new ListBooksCommand(books));
     }};
 
     public void introMessages() {
@@ -34,13 +34,13 @@ public class LibraryUI {
 
     public void execute(Command cmd) {
         if (cmd != null) {
-            cmd.execute(books);
+            cmd.execute();
         } else {
             System.out.println(NO_COMMAND);
         }
     }
 
-    public void run() {
+    private void run() {
         System.out.println(printSelectionOptions());
 
         while (true) {
@@ -48,15 +48,10 @@ public class LibraryUI {
         }
     }
 
-    public String getInput() {
+    private String getInput() {
         return input.next();
     }
 
-    public static void main(String[] args) {
-        LibraryUI lib = new LibraryUI();
-        lib.introMessages();
-        lib.run();
-    }
 
     public String getBooks() {
         StringBuilder listOfBooks = new StringBuilder();
@@ -69,12 +64,17 @@ public class LibraryUI {
         return listOfBooks.toString()+"\n";
     }
 
-    public String printSelectionOptions() {
+    private String printSelectionOptions() {
         StringBuilder selections = new StringBuilder();
         for (Map.Entry<String, Command> entry : commands.entrySet()) {
             selections.append(String.format("%4s : %20s\n", entry.getKey(), entry.getValue().description()));
         }
         return selections.toString();
+    }
 
+    public static void main(String[] args) {
+        LibraryUI lib = new LibraryUI();
+        lib.introMessages();
+        lib.run();
     }
 }

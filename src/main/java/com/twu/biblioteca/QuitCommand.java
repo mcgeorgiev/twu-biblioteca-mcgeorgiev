@@ -9,13 +9,9 @@ public class QuitCommand extends Command {
         super.description = "Quit Biblioteca";
     }
 
-    public void execute(List<Book> books) {
+    public void execute() {
         message();
         System.exit(0);
-    }
-
-    public void message() {
-        System.out.println(getMessage());
     }
 
 }

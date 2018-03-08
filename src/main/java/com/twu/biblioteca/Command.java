@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.List;
 
 public abstract class Command {
     protected String message;
@@ -9,7 +8,7 @@ public abstract class Command {
     public Command() {
     }
 
-    public abstract void execute(List<Book> items);
+    public abstract void execute();
 
     public String getMessage(){
         return message + "\n";
@@ -17,5 +16,9 @@ public abstract class Command {
 
     public String description() {
         return description;
+    }
+
+    public void message() {
+        System.out.println(getMessage());
     }
 }

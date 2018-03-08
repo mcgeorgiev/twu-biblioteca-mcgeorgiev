@@ -12,7 +12,7 @@ import static org.junit.Assert.assertFalse;
 public class LibraryUITest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
-    LibraryUI lib;
+    private LibraryUI lib;
 
     @Before
     public void init() {
@@ -53,11 +53,6 @@ public class LibraryUITest {
         Command cmd = lib.getCommand("z");
         lib.execute(cmd);
         assertEquals(LibraryUI.NO_COMMAND + "\n", outContent.toString());
-    }
-
-    public void executeById(String id) {
-        Command cmd = lib.getCommand("z");
-        lib.execute(cmd);
     }
 
     @Test

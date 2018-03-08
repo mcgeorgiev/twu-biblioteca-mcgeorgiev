@@ -25,15 +25,13 @@ public class CheckoutTest {
 
     @Test
     public void successfulCheckout() {
-        String message = co.checkout(book);
-        assertEquals(Checkout.SUCCESSFUL_MESSAGE, message);
+        checkout(Checkout.SUCCESSFUL_MESSAGE);
     }
 
     @Test
     public void unsuccessfulCheckout() {
         book.changeToOnLoan();
-        String message = co.checkout(book);
-        assertEquals(Checkout.UNSUCCESSFUL_MESSAGE, message);
+        checkout(Checkout.UNSUCCESSFUL_MESSAGE);
     }
 
     @Test
@@ -56,6 +54,11 @@ public class CheckoutTest {
     public void unsuccessfulReturn() {
         String message = co.checkin(book);
         assertEquals(Checkout.UNSUCCESSFUL_RETURN_MESSAGE, message);
+    }
+
+    private void checkout(String correctMessage) {
+        String testMessage = co.checkout(book);
+        assertEquals(correctMessage, testMessage);
     }
 
 
