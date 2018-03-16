@@ -1,30 +1,20 @@
-package com.twu.biblioteca;
+package main.java.com.twu.biblioteca;
 
-public class Book {
-    private String title, author;
-    private String dop;
-    private boolean onLoan;
+public class Book extends Item {
+    private String title, author, dop;
 
     public Book(String t, String a, String d) {
         title = t;
         author = a;
         dop = d;
         onLoan = false;
+        formatString = "%20s | %20s | %4s";
     }
 
     public String getDetail() {
-        return String.format("%30s | %30s | %4s", title, author, dop);
+        return String.format("%20s | %20s | %4s", title, author, dop);
     }
 
-    public boolean onLoan() {
-        return onLoan;
-    }
 
-    public void changeToOnLoan() {
-        onLoan = true;
-    }
 
-    public void changeToReturned() {
-        onLoan = false;
-    }
 }

@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package main.java.com.twu.biblioteca;
 
 
 public abstract class Command {
