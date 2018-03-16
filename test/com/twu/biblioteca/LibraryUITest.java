@@ -1,5 +1,4 @@
 package com.twu.biblioteca;
-import main.java.com.twu.biblioteca.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,6 +48,16 @@ public class LibraryUITest {
     }
 
     @Test
+    public void listMovies() {
+        Command cmd = lib.getCommand("m");
+        lib.execute(cmd);
+        assertEquals(cmd.getMessage() + "\n" + lib.getMovies(), outContent.toString());
+
+    }
+
+
+
+    @Test
     public void invalidInput() {
         Command cmd = lib.getCommand("z");
         lib.execute(cmd);
@@ -64,19 +73,8 @@ public class LibraryUITest {
     }
 
     // Not easy to test System.exit!
-//    @Test
-//    public void quit() {
-//        Command cmd = lib.getCommand("q");
-//        lib.execute(cmd);
-//        assertEquals(cmd.getMessage(), outContent.toString());
-//    }
 
-//    @Test
-//    public void runMainMenu() {
-//        lib.run();
-//        assertEquals(lib.printSelectionOptions(), outContent.toString());
-//
-//    }
+
 
 
 

@@ -1,5 +1,4 @@
-package main.java.com.twu.biblioteca;
-import  main.java.com.twu.biblioteca.*;
+package com.twu.biblioteca;
 
 import java.util.*;
 
@@ -10,7 +9,7 @@ public class LibraryUI {
 
     private Scanner input = new Scanner(System.in);
 
-    private List<Book> books = new ArrayList<Book>() {{
+    private List<Item> books = new ArrayList<Item>() {{
         add(new Book("Thomas Hardy", "The Return of the Native", "1878"));
         add(new Book("Adam Tooze", "The Deluge", "2015"));
         add(new Book("Andrew Michael Hurley", "The Loney", "2015"));
@@ -19,9 +18,19 @@ public class LibraryUI {
         add(loaned);
     }};
 
+    private List<Item> movies = new ArrayList<Item>() {{
+        add(new Movie("Falling Down", "1993", "Joel Schumacher", "10"));
+        add(new Movie("The Killing Fields", "Roland Joffé", "1984", "9"));
+        add(new Movie("Brazil", "1985", "Terry Gilliam", "Unrated"));
+//        Book loaned = new Book("John Kennedy Toole", "A Confederacy of Dunces", "1980");
+//        loaned.changeToOnLoan();
+//        add(loaned);
+    }};
+
     private Map<String, Command> commands = new HashMap<String, Command>() {{
         put("q", new QuitCommand());
         put("l", new ListBooksCommand(books));
+        put("m", new ListMoviesCommand(movies));
     }};
 
     public void introMessages() {
@@ -53,12 +62,19 @@ public class LibraryUI {
         return input.next();
     }
 
-
     public String getBooks() {
+        return getItems(books);
+    }
+
+    public String getMovies() {
+        return getItems(movies);
+    }
+
+    private String getItems(List<Item> items) {
         StringBuilder listOfBooks = new StringBuilder();
-        for (Book b :books) {
-            if (!b.onLoan()) {
-                listOfBooks.append(b.getDetail());
+        for (Item i :items) {
+            if (!i.onLoan()) {
+                listOfBooks.append(i.getDetail());
                 listOfBooks.append("\n");
             }
         }

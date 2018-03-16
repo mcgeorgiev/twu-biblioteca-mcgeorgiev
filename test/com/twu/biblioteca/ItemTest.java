@@ -1,10 +1,7 @@
 package com.twu.biblioteca;
 
-import main.java.com.twu.biblioteca.Item;
-import main.java.com.twu.biblioteca.Movie;
-import main.java.com.twu.biblioteca.Book;
-import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 

@@ -1,4 +1,4 @@
-package main.java.com.twu.biblioteca;
+package com.twu.biblioteca;
 
 public class Movie extends Item {
     private String title, year, director, rating;

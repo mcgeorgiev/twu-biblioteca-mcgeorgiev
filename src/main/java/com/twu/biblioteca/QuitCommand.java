@@ -1,6 +1,4 @@
-package main.java.com.twu.biblioteca;
-
-import java.util.List;
+package com.twu.biblioteca;
 
 public class QuitCommand extends Command {
 

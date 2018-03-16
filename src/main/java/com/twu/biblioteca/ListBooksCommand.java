@@ -1,11 +1,11 @@
-package main.java.com.twu.biblioteca;
+package com.twu.biblioteca;
 
 import java.util.List;
 
 public class ListBooksCommand extends Command {
-    private List<Book> books;
+    private List<Item> books;
 
-    public ListBooksCommand(List<Book> books) {
+    public ListBooksCommand(List<Item> books) {
         this.books = books;
         super.message = "Listing Books";
         super.description = "List present books";
@@ -14,7 +14,7 @@ public class ListBooksCommand extends Command {
     public void execute() {
         message();
         StringBuilder listOfBooks = new StringBuilder();
-        for (Book b :this.books) {
+        for (Item b :this.books) {
             if (!b.onLoan()) {
                 listOfBooks.append(b.getDetail());
                 listOfBooks.append("\n");

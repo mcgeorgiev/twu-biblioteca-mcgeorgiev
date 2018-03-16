@@ -1,4 +1,4 @@
-package main.java.com.twu.biblioteca;
+package com.twu.biblioteca;
 
 public abstract class Item {
     protected boolean onLoan;
