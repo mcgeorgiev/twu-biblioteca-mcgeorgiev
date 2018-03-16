@@ -10,12 +10,21 @@ import static org.junit.Assert.assertFalse;
 public class CheckoutTest {
     Book book;
     Checkout co;
+    Movie movie;
 
     @Before
     public void init() {
         book = new Book("Thomas Hardy", "The Return of the Native", "1878");
+        movie = new Movie("Falling Down", "1993", "Joel Schumacher", "10");
         co = new Checkout();
     }
+
+    @Test
+    public void movieCheckedOut() {
+        co.checkout(movie);
+        assertTrue(movie.onLoan());
+    }
+
 
     @Test
     public void bookCheckedOut() {
@@ -36,11 +45,22 @@ public class CheckoutTest {
 
     @Test
     public void returnBook() {
+        returnItem(book);
+    }
+
+    @Test
+    public void returnMovie() {
+        returnItem(movie);
+    }
+    
+    public void returnItem(Item item) {
         co.checkout(book);
         assertTrue(book.onLoan());
         co.checkin(book);
         assertFalse(book.onLoan());
     }
+
+
 
 
     @Test

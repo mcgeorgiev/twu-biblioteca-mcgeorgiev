@@ -8,7 +8,7 @@ public class Movie extends Item {
         year = y;
         director = d;
         rating = r;
-        formatString = "%s %s %s %s";
+        formatString = "%20s | %4s | %20s | %10s";
 
     }
 

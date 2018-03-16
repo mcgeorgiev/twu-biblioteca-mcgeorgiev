@@ -20,7 +20,7 @@ public class LibraryUI {
 
     private List<Item> movies = new ArrayList<Item>() {{
         add(new Movie("Falling Down", "1993", "Joel Schumacher", "10"));
-        add(new Movie("The Killing Fields", "Roland Joffé", "1984", "9"));
+        add(new Movie("The Killing Fields", "1984","Roland Joffé","9"));
         add(new Movie("Brazil", "1985", "Terry Gilliam", "Unrated"));
 //        Book loaned = new Book("John Kennedy Toole", "A Confederacy of Dunces", "1980");
 //        loaned.changeToOnLoan();
@@ -29,7 +29,7 @@ public class LibraryUI {
 
     private Map<String, Command> commands = new HashMap<String, Command>() {{
         put("q", new QuitCommand());
-        put("l", new ListBooksCommand(books));
+        put("b", new ListBooksCommand(books));
         put("m", new ListMoviesCommand(movies));
     }};
 

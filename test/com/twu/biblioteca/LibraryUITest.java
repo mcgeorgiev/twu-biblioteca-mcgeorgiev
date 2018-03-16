@@ -41,7 +41,7 @@ public class LibraryUITest {
 
     @Test
     public void listBooks() {
-        Command cmd = lib.getCommand("l");
+        Command cmd = lib.getCommand("b");
         lib.execute(cmd);
         assertEquals(cmd.getMessage() + "\n" + lib.getBooks(), outContent.toString());
 

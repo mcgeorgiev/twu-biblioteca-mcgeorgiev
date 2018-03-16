@@ -11,7 +11,7 @@ public class ItemTest  {
     @Test
     public void itemAcceptsMovie() {
         Item movie = new Movie("Falling Down", "1993", "Joel Schumacher", "10");
-        assertEquals("Falling Down 1993 Joel Schumacher 10", movie.getDetail());
+        assertEquals(String.format(movie.getFormatString(), "Falling Down", "1993", "Joel Schumacher", "10"), movie.getDetail());
     }
 
     @Test

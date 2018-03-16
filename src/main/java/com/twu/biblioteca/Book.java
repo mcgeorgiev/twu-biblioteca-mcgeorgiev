@@ -8,11 +8,11 @@ public class Book extends Item {
         author = a;
         dop = d;
         onLoan = false;
-        formatString = "%20s | %20s | %4s";
+        formatString = "%30s | %30s | %4s";
     }
 
     public String getDetail() {
-        return String.format("%20s | %20s | %4s", title, author, dop);
+        return String.format(formatString, title, author, dop);
     }
 
 
