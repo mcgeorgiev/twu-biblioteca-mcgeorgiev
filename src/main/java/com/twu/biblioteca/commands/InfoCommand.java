@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.commands;
+
+import com.twu.biblioteca.Session;
 
 public class InfoCommand extends Command {
     Session session;

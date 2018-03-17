@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
 
+import com.twu.biblioteca.items.Item;
+
 public class Checkout {
     public static final String SUCCESSFUL_MESSAGE = "Thank you! Enjoy the book.";
     public static final String UNSUCCESSFUL_MESSAGE = "That book is not available.";

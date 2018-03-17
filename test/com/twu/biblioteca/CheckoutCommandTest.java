@@ -1,5 +1,8 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.commands.CheckoutCommand;
+import com.twu.biblioteca.items.Item;
+import com.twu.biblioteca.items.Movie;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,4 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.commands;
+
+import com.twu.biblioteca.Session;
+import com.twu.biblioteca.User;
 
 import java.util.List;
 import java.util.Scanner;

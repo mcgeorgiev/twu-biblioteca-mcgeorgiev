@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.items;
 
 public abstract class Item {
     protected String title;

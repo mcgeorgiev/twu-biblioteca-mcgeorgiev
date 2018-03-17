@@ -1,5 +1,10 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.commands.*;
+import com.twu.biblioteca.items.Book;
+import com.twu.biblioteca.items.Item;
+import com.twu.biblioteca.items.Movie;
+
 import java.util.*;
 
 public class LibraryUI {
@@ -35,7 +40,8 @@ public class LibraryUI {
         put("q", new QuitCommand());
         put("b", new ListBooksCommand(books));
         put("m", new ListMoviesCommand(movies));
-        put("c", new CheckoutCommand(books, session));
+        put("cb", new CheckoutCommand(books, session));
+        put("cm", new CheckoutCommand(movies, session));
         put("l", new LoginCommand(users, session));
         put("i", new InfoCommand(session));
     }};

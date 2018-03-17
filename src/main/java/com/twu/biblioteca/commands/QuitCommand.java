@@ -1,4 +1,4 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.commands;
 
 public class QuitCommand extends Command {
 

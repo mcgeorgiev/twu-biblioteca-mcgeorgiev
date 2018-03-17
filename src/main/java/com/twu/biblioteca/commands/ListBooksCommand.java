@@ -1,4 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.commands;
+
+import com.twu.biblioteca.items.Item;
 
 import java.util.List;
 

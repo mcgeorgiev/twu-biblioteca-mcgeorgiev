@@ -1,4 +1,9 @@
 package com.twu.biblioteca;
+import com.twu.biblioteca.commands.CheckoutCommand;
+import com.twu.biblioteca.commands.Command;
+import com.twu.biblioteca.commands.InfoCommand;
+import com.twu.biblioteca.commands.LoginCommand;
+import com.twu.biblioteca.items.Item;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -71,13 +76,13 @@ public class LibraryUITest {
     }
 
     public Item getItem(int num) {
-        CheckoutCommand checkout = (CheckoutCommand) lib.getCommand("c");
+        CheckoutCommand checkout = (CheckoutCommand) lib.getCommand("cb");
         return checkout.getSelection(num);
     }
 
     @Test
     public void checkoutFirstBook() {
-        CheckoutCommand checkout = (CheckoutCommand) lib.getCommand("c");
+        CheckoutCommand checkout = (CheckoutCommand) lib.getCommand("cb");
         Item first = checkout.getSelection(0);
         assertFalse(first.onLoan());
         checkout.checkOutItem(first);
