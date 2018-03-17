@@ -5,15 +5,25 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class CheckoutCommand extends Command {
-    protected List<Item> items;
+    private List<Item> items;
+    private Session session;
     private Scanner input = new Scanner(System.in);
 
-    public CheckoutCommand(List<Item> i) {
+    public CheckoutCommand(List<Item> i, Session s) {
        items = i;
+       session = s;
        super.description = "Checkout an Item";
     }
 
     public void execute() {
+        if (userLoggedIn()) {
+            processCheckout();
+        } else {
+            System.out.println("Enter Valid Credentials First");
+        }
+    }
+
+    private void processCheckout() {
         System.out.println("Enter an item number to checkout:");
         int selection = -1;
         do {
@@ -47,5 +57,9 @@ public class CheckoutCommand extends Command {
 
     private boolean isInRange(int num) {
         return (num < 0) && (num >= getCheckedInItems(items).size());
+    }
+
+    public boolean userLoggedIn() {
+        return true ? session.loggedIn() : false;
     }
 }

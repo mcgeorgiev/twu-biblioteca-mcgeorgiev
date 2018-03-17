@@ -8,10 +8,12 @@ public class LibraryUI {
     public static final String NO_COMMAND = "Select a valid option!";
 
     private Scanner input = new Scanner(System.in);
+    private Session session = new Session();
 
     private List<User> users = new ArrayList<User>() {{
-        add(new User("123-4567", "password"));
-        add(new User("000-0000", "admin"));
+        User usr = new User("123-4567", "password");
+        usr.setAccountInformation("Michael", "example@example.com", "012345678");
+        add(usr);
     }};
 
     private List<Item> books = new ArrayList<Item>() {{
@@ -27,17 +29,15 @@ public class LibraryUI {
         add(new Movie("Falling Down", "1993", "Joel Schumacher", "10"));
         add(new Movie("The Killing Fields", "1984","Roland Joffé","9"));
         add(new Movie("Brazil", "1985", "Terry Gilliam", "Unrated"));
-//        Book loaned = new Book("John Kennedy Toole", "A Confederacy of Dunces", "1980");
-//        loaned.changeToOnLoan();
-//        add(loaned);
     }};
 
     private Map<String, Command> commands = new HashMap<String, Command>() {{
         put("q", new QuitCommand());
         put("b", new ListBooksCommand(books));
         put("m", new ListMoviesCommand(movies));
-        put("c", new CheckoutCommand(books));
-        put("l", new LoginCommand(users));
+        put("c", new CheckoutCommand(books, session));
+        put("l", new LoginCommand(users, session));
+        put("i", new InfoCommand(session));
     }};
 
     public void introMessages() {
@@ -103,12 +103,7 @@ public class LibraryUI {
     }
 
     public boolean userLoggedIn() {
-        for (User u: users) {
-            if (u.isLoggedIn()) {
-                return true;
-            }
-        }
-        return false;
+        return session.loggedIn();
     }
 
 }

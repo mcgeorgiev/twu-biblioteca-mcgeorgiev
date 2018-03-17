@@ -48,6 +48,13 @@ public class LibraryUITest {
     }
 
     @Test
+    public void showUserInfoOnlyIfLoggedIn() {
+        InfoCommand cmd = (InfoCommand) lib.getCommand("i");
+
+    }
+
+
+    @Test
     public void listBooks() {
         Command cmd = lib.getCommand("b");
         lib.execute(cmd);
@@ -97,13 +104,7 @@ public class LibraryUITest {
         assertEquals(LibraryUI.NO_COMMAND + "\n", outContent.toString());
     }
 
-//    @Test
-//    public void onLoanBookNotInList() {
-//        String loanedDetails = new Book("John Kennedy Toole", "A Confederacy of Dunces", "1980").getDetail();
-//        Command cmd = lib.getCommand("l");
-//        lib.execute(cmd);
-//        assertFalse(outContent.toString().contains(loanedDetails));
-//    }
+
 
 
 
