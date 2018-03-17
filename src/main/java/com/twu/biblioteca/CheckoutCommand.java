@@ -14,7 +14,7 @@ public class CheckoutCommand extends Command {
     }
 
     public void execute() {
-        System.out.println("Enter a book number to checkout:");
+        System.out.println("Enter an item number to checkout:");
         int selection = -1;
         do {
             try {

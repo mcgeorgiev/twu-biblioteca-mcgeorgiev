@@ -9,6 +9,11 @@ public class LibraryUI {
 
     private Scanner input = new Scanner(System.in);
 
+    private List<User> users = new ArrayList<User>() {{
+        add(new User("123-4567", "password"));
+        add(new User("000-0000", "admin"));
+    }};
+
     private List<Item> books = new ArrayList<Item>() {{
         add(new Book("The Return of the Native", "Thomas Hardy","1878"));
         add(new Book("The Deluge", "Adam Tooze", "2015"));
@@ -32,6 +37,7 @@ public class LibraryUI {
         put("b", new ListBooksCommand(books));
         put("m", new ListMoviesCommand(movies));
         put("c", new CheckoutCommand(books));
+        put("l", new LoginCommand(users));
     }};
 
     public void introMessages() {
@@ -95,4 +101,14 @@ public class LibraryUI {
         lib.introMessages();
         lib.run();
     }
+
+    public boolean userLoggedIn() {
+        for (User u: users) {
+            if (u.isLoggedIn()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
