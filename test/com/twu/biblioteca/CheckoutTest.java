@@ -17,8 +17,8 @@ public class CheckoutTest {
 
     @Before
     public void init() {
-        book = new Book("Thomas Hardy", "The Return of the Native", "1878");
-        movie = new Movie("Falling Down", "1993", "Joel Schumacher", "10");
+        book = new Book(BookData.AUTHOR, BookData.TITLE, BookData.YEAR);
+        movie = new Movie(MovieData.TITLE, MovieData.YEAR, MovieData.DIRECTOR, MovieData.RATING);
         co = new Checkout();
     }
 
