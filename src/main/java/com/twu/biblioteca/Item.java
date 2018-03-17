@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 public abstract class Item {
+    protected String title;
     protected boolean onLoan;
     protected String formatString;
 
@@ -23,4 +24,6 @@ public abstract class Item {
     public String getFormatString() {
         return formatString;
     }
+
+    public String getTitle() { return title; }
 }

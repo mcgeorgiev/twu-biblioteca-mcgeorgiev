@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
 public class Book extends Item {
-    private String title, author, dop;
+    private String author, dop;
 
     public Book(String t, String a, String d) {
-        title = t;
+        super.title = t;
         author = a;
         dop = d;
         onLoan = false;
@@ -12,9 +12,9 @@ public class Book extends Item {
     }
 
     public String getDetail() {
-        return String.format(formatString, title, author, dop);
+        return String.format(formatString, super.title, author, dop);
     }
 
-
+    public String getTitle() { return super.title; }
 
 }

@@ -52,7 +52,7 @@ public class CheckoutTest {
     public void returnMovie() {
         returnItem(movie);
     }
-    
+
     public void returnItem(Item item) {
         co.checkout(book);
         assertTrue(book.onLoan());

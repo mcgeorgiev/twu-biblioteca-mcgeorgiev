@@ -10,9 +10,9 @@ public class LibraryUI {
     private Scanner input = new Scanner(System.in);
 
     private List<Item> books = new ArrayList<Item>() {{
-        add(new Book("Thomas Hardy", "The Return of the Native", "1878"));
-        add(new Book("Adam Tooze", "The Deluge", "2015"));
-        add(new Book("Andrew Michael Hurley", "The Loney", "2015"));
+        add(new Book("The Return of the Native", "Thomas Hardy","1878"));
+        add(new Book("The Deluge", "Adam Tooze", "2015"));
+        add(new Book("The Loney", "Andrew Michael Hurley", "2015"));
         Book loaned = new Book("John Kennedy Toole", "A Confederacy of Dunces", "1980");
         loaned.changeToOnLoan();
         add(loaned);
@@ -31,6 +31,7 @@ public class LibraryUI {
         put("q", new QuitCommand());
         put("b", new ListBooksCommand(books));
         put("m", new ListMoviesCommand(movies));
+        put("c", new CheckoutCommand(books));
     }};
 
     public void introMessages() {

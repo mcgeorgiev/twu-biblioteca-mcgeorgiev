@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -55,6 +56,31 @@ public class LibraryUITest {
 
     }
 
+    public Item getItem(int num) {
+        CheckoutCommand checkout = (CheckoutCommand) lib.getCommand("c");
+        return checkout.getSelection(num);
+    }
+
+    @Test
+    public void checkoutFirstBook() {
+        CheckoutCommand checkout = (CheckoutCommand) lib.getCommand("c");
+        Item first = checkout.getSelection(0);
+        assertFalse(first.onLoan());
+        checkout.checkOutItem(first);
+        assertTrue(first.onLoan());
+    }
+
+
+    @Test
+    public void selectLastBook() {
+        assertEquals("The Loney", getItem(2).getTitle());
+    }
+
+
+    @Test
+    public void selectFirstBook() {
+        assertEquals("The Return of the Native", getItem(0).getTitle());
+    }
 
 
     @Test
